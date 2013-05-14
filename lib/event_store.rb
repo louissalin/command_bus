@@ -1,4 +1,6 @@
 class EventStore
+    EventStoreConfig = Struct.new(:root)
+
     class << self
         def config
             c = EventStoreConfig.new
@@ -18,4 +20,3 @@ class EventStore
     end
 end
 
-EventStoreConfig = Struct.new(:root)
