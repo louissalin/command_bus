@@ -16,7 +16,8 @@ class CommandBus
     end
 
     def execute(cmd)
-        load_handler(cmd)
+        handler_class = load_handler(cmd)
+        handler_class.new.execute
     end
 
     private
@@ -29,9 +30,7 @@ class CommandBus
         require_handler(cmd)
 
         handler_name = "#{cmd.to_s}_command_handler"
-        handler_class = handler_name.camelize.constantize
-
-        handler_class.new.execute
+        handler_name.camelize.constantize
     end
 
     def require_handler(cmd)
