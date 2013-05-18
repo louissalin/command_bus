@@ -17,18 +17,16 @@ describe CommandBus do
     end
 
     describe 'executing' do
-        it 'should look for a handler in a command_handlers dir' do
+        it 'should look for a handler in a command_handlers dir, instantiate it and call execute' do
             executed = false
-            class ::CreateMoneyCommandHandler
-                def execute
-                    executed = true
-                end
+            Handler = class ::CreateMoneyCommandHandler; self; end
+            Handler.define_method(:execute) do
+                executed = true
             end
 
             @sut.should_receive(:require)
                 .with("./#{path}/create_money_command_handler")
                 .and_return(true)
-
 
             @sut.execute(:create_money)
             executed.should == true
