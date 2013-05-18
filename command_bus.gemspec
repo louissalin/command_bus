@@ -10,6 +10,8 @@ Gem::Specification.new do |s|
     s.platform      = Gem::Platform::RUBY
     s.authors       = ['Louis Salin']
     s.email         = ['louis.phil@gmail.com']
+    s.homepage      = 'http://github.com/louissalin/command_bus'
+    s.license       = 'MIT'
     s.summary       = 'A simple command bus'
     s.description   = 'Execute a command and the command bus will look up the proper handler class automatically and execute it'
 
