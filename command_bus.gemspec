@@ -14,5 +14,7 @@ Gem::Specification.new do |s|
     s.description   = 'Execute a command and the command bus will look up the proper handler class automatically and execute it'
 
     s.add_development_dependency 'rspec'
-    s.files        = Dir.glob("{bin,lib}/**/*") + %w(LICENSE README.md CHANGELOG.md)
+
+    s.files         = Dir.glob("lib/**/*") + %w(LICENSE README.md CHANGELOG.md)
+    s.require_path  = 'lib'
 end
